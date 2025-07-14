@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.props" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.props')" />
+  <Import Project="..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.props" Condition="Exists('..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.props')" />
   <Import Project="..\packages\SpecFlow.MsTest.3.9.74\build\SpecFlow.MsTest.props" Condition="Exists('..\packages\SpecFlow.MsTest.3.9.74\build\SpecFlow.MsTest.props')" />
   <Import Project="..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.74\build\SpecFlow.Tools.MsBuild.Generation.props" Condition="Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.74\build\SpecFlow.Tools.MsBuild.Generation.props')" />
   <Import Project="..\packages\MSTest.TestAdapter.2.2.7\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\packages\MSTest.TestAdapter.2.2.7\build\net45\MSTest.TestAdapter.props')" />
@@ -31,6 +33,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -39,6 +42,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BoDi, Version=1.5.0.0, Culture=neutral, PublicKeyToken=ff7cd5ea2744b496, processorArchitecture=MSIL">
@@ -56,6 +60,31 @@
     <Reference Include="JsonConverter.Newtonsoft.Json, Version=0.7.2.0, Culture=neutral, PublicKeyToken=7ba85365b500f2e2, processorArchitecture=MSIL">
       <HintPath>..\packages\JsonConverter.Newtonsoft.Json.0.7.2\lib\net45\JsonConverter.Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Playwright, Version=1.53.0.0, Culture=neutral, PublicKeyToken=db12f80f85d8ba23, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Playwright.1.53.0\lib\netstandard2.0\Microsoft.Playwright.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Playwright.MSTest, Version=1.53.0.0, Culture=neutral, PublicKeyToken=db12f80f85d8ba23, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Playwright.MSTest.1.53.0\lib\netstandard2.0\Microsoft.Playwright.MSTest.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Playwright.TestAdapter, Version=1.53.0.0, Culture=neutral, PublicKeyToken=db12f80f85d8ba23, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Playwright.TestAdapter.1.53.0\lib\netstandard2.0\Microsoft.Playwright.TestAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TestPlatform.CoreUtilities, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TestPlatform.ObjectModel.17.3.0\lib\net451\Microsoft.TestPlatform.CoreUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TestPlatform.PlatformAbstractions, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TestPlatform.ObjectModel.17.3.0\lib\net451\Microsoft.TestPlatform.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.CodeCoverage.Shim, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeCoverage.17.8.0\lib\net462\Microsoft.VisualStudio.CodeCoverage.Shim.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.ObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TestPlatform.ObjectModel.17.3.0\lib\net451\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.2.2.7\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
@@ -71,6 +100,9 @@
     <Reference Include="Newtonsoft.Json.Schema, Version=4.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.Schema.4.0.1\lib\net45\Newtonsoft.Json.Schema.dll</HintPath>
     </Reference>
+    <Reference Include="NuGet.Frameworks, Version=5.11.3.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\NuGet.Frameworks.5.11.3\lib\net472\NuGet.Frameworks.dll</HintPath>
+    </Reference>
     <Reference Include="SpecFlow.Internal.Json, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
       <HintPath>..\packages\SpecFlow.Internal.Json.1.0.8\lib\net45\SpecFlow.Internal.Json.dll</HintPath>
     </Reference>
@@ -78,26 +110,48 @@
       <HintPath>..\packages\Stef.Validation.0.1.1\lib\net40\Stef.Validation.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=1.4.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.1.6.0\lib\netstandard2.0\System.Reflection.Metadata.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
       <Private>True</Private>
@@ -118,11 +172,17 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.10, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.6.0.10\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net47\System.ValueTuple.dll</HintPath>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
@@ -139,12 +199,19 @@
     <Compile Include="Context\Controller.cs" />
     <Compile Include="DTO\DataSubmission.cs" />
     <Compile Include="DTO\SystemInfoDto.cs" />
+    <Compile Include="UI\Driver.cs" />
+    <Compile Include="UI\PageObjects\AvailabilitiesPage.cs" />
+    <Compile Include="UI\PageObjects\Navigation.cs" />
+    <Compile Include="UI\PageObjects\WithinDayPage.cs" />
+    <Compile Include="UI\UISteps.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ApiTests\ApiTest.feature" />
+    <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="UI\UI.feature" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
@@ -160,9 +227,17 @@
     <Error Condition="!Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.74\build\SpecFlow.Tools.MsBuild.Generation.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.74\build\SpecFlow.Tools.MsBuild.Generation.targets'))" />
     <Error Condition="!Exists('..\packages\SpecFlow.MsTest.3.9.74\build\SpecFlow.MsTest.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.MsTest.3.9.74\build\SpecFlow.MsTest.props'))" />
     <Error Condition="!Exists('..\packages\SpecFlow.MsTest.3.9.74\build\SpecFlow.MsTest.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.MsTest.3.9.74\build\SpecFlow.MsTest.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Playwright.1.53.0\build\Microsoft.Playwright.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Playwright.1.53.0\build\Microsoft.Playwright.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.targets'))" />
   </Target>
   <Import Project="..\packages\MSTest.TestAdapter.2.2.7\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.2.2.7\build\net45\MSTest.TestAdapter.targets')" />
   <Import Project="..\packages\SpecFlow.3.9.74\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.3.9.74\build\SpecFlow.targets')" />
   <Import Project="..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.74\build\SpecFlow.Tools.MsBuild.Generation.targets" Condition="Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.74\build\SpecFlow.Tools.MsBuild.Generation.targets')" />
   <Import Project="..\packages\SpecFlow.MsTest.3.9.74\build\SpecFlow.MsTest.targets" Condition="Exists('..\packages\SpecFlow.MsTest.3.9.74\build\SpecFlow.MsTest.targets')" />
+  <Import Project="..\packages\Microsoft.Playwright.1.53.0\build\Microsoft.Playwright.targets" Condition="Exists('..\packages\Microsoft.Playwright.1.53.0\build\Microsoft.Playwright.targets')" />
+  <Import Project="..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.targets" Condition="Exists('..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.targets')" />
+  <Import Project="..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.targets" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.targets')" />
 </Project>
